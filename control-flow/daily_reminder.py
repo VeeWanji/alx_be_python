@@ -7,24 +7,22 @@ while priority not in ["high", "medium", "low"]:
 match priority:
     case "high":
         reminder = f"⚡ '{task}' is a HIGH priority task."
+        if time_bound == "yes":
+            reminder += " 🚨 It requires your immediate attention today!"
+        else:
+            reminder += " Plan it as soon as possible to avoid delays."
     case "medium":
         reminder = f"📝 '{task}' is a MEDIUM priority task."
+        if time_bound == "yes":
+            reminder += " ⏰ Try to complete it today to stay on track."
+        else:
+            reminder += " Work on it when you have available time."
     case "low":
         reminder = f"☑️ '{task}' is a LOW priority task."
+        if time_bound == "yes":
+            reminder += " 🔔 Even though it's low priority, make time for it today."
+        else:
+            reminder += " Do it during your free time—no rush."
     case _:
-        reminder = f"'{task}' has an unspecified priority."
-if time_bound == "yes":
-    if priority == "high":
-        reminder += " 🚨 You must complete it immediately today!"
-    elif priority == "medium":
-        reminder += " ⏰ Try to finish it today to stay on track."
-    else:  
-        reminder += " 🔔 Even though it's low priority, schedule time today."
-else:
-    if priority == "high":
-        reminder += " Plan it soon—don't let it slip!"
-    elif priority == "medium":
-        reminder += " Complete it when possible, but not urgent."
-    else:
-        reminder += " Do it in your free time, no rush."
+        reminder = f"'{task}' has an unspecified priority. Decide when to complete it."
 print("\nReminder:", reminder)
