@@ -7,8 +7,10 @@ def display_current_datetime():
 
 def calculate_future_date(current_date, days_to_add):
     future_date = current_date + timedelta(days=days_to_add)
-    print("Future date:", future_date.strftime("%Y-%m-%d"))
-    return future_date
+    print("Future date:", future_date.strftime("%Y-%m-%d")) 
+    return future_date 
 
 if _name_ == "_main_":
+    current date = display_current_datetime()
+    days = int(input("Enter number of days o add to the current date: "))
 
