@@ -1,18 +1,28 @@
 def perform_operation(num1: float, num2: float, operation: str):
     """
-    Perform basic arithmetic operations (add, subtract, multiply, divide)
-    using a dictionary of lambda functions.
+    Perform basic arithmetic operations: add, subtract, multiply, divide.
+
+    Args:
+        num1 (float): first number
+        num2 (float): second number
+        operation (str): 'add', 'subtract', 'multiply', or 'divide'
+
+    Returns:
+        float or str: result of the operation, or an error message
     """
 
-    operations = {
-        "add": lambda a, b: a + b,
-        "subtract": lambda a, b: a - b,
-        "multiply": lambda a, b: a * b,
-        "divide": lambda a, b: "Error: Division by zero" if b == 0 else a / b,
-    }
-    func = operations.get(operation)
+    operation = operation.strip().lower()  
 
-    if func:
-        return func(num1, num2)
+    if operation == "add":
+        return num1 + num2
+    elif operation == "subtract":
+        return num1 - num2
+    elif operation == "multiply":
+        return num1 * num2
+    elif operation == "divide":
+        if num2 == 0:
+            return "Error: Division by zero"
+        return num1 / num2
     else:
         return "Error: Invalid operation"
+        
