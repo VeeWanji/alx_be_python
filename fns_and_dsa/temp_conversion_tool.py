@@ -1,5 +1,6 @@
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+CELSIUS_OFFSET = 32
 def convert_to_celsius(fahrenheit):
     celsius = (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
     return celsius
@@ -26,7 +27,7 @@ def main():
             except ValueError:
                 print("Invalid temperature. Please enter a numeric value.")
 
-        if _name_=="_main_":
+        if _name_== "_main_":
           main()
 
 
