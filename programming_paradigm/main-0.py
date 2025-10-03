@@ -15,7 +15,7 @@ def main():
         print("Expected: Insufficient funds.")
     account.display_balance()
     print("Final Check:")
-    account.display_balance()
+    account.display_balance(250)
 
 if __name__ == "__main__":
     main()
