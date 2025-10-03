@@ -1,21 +1,20 @@
-from robust_division_calculator import safe_divide
+from library_management import Book, Library
 
 def main():
-    print("Test 1: 10 / 5")
-    print("Expected: The result of the division is 2.0")
-    print("Actual:   ", safe_divide(10, 5))
-    print()
+    
+    library = Library()
+    library.add_book(Book("Brave New World", "Aldous Huxley"))
+    library.add_book(Book("1984", "George Orwell"))
 
-    print("Test 2: 10 / 0")
-    print("Expected: Error: Cannot divide by zero.")
-    print("Actual:   ", safe_divide(10, 0))
-    print()
-
-    print("Test 3: 'ten' / 5")
-    print("Expected: Error: Please enter numeric values only.")
-    print("Actual:   ", safe_divide("ten", 5))
-    print()
+    print("Available books after setup:")
+    library.list_available_books()
+    library.check_out_book("1984")
+    print("\nAvailable books after checking out '1984':")
+    library.list_available_books()
+    
+    library.return_book("1984")
+    print("\nAvailable books after returning '1984':")
+    library.list_available_books()
 
 if __name__ == "__main__":
-    main() 
-    
+    main()
