@@ -1,39 +1,21 @@
-import sys
 from bank_account import BankAccount
-
 def main():
-    account = BankAccount(100)  # Example starting balance
-    
-    if len(sys.argv) < 2:
-        print("Usage: python main-0.py <command>:<amount>")
-        print("Commands: deposit, withdraw, display")
-        sys.exit(1)
-
-    command, *params = sys.argv[1].split(':')
-    
-    if command == "deposit":
-        if params and params[0].replace('.', '', 1).isdigit():
-            amount = float(params[0])
-            account.deposit(amount)
-            print(f"Deposited: ${amount:.2f}")
-            account.display_balance()
-        else:
-            print("Invalid amount for deposit.")
-    elif command == "withdraw":
-        if params and params[0].replace('.', '', 1).isdigit():
-            amount = float(params[0])
-            if account.withdraw(amount):
-                print(f"Withdrew: ${amount:.2f}")
-                account.display_balance()
-            else:
-                print("Insufficient funds.")
-                account.display_balance()
-        else:
-            print("Invalid amount for withdrawal.")
-    elif command == "display":
-        account.display_balance()
+    account = BankAccount(100)
+    account.deposit(50)
+    print("Expected: Deposited: $50")
+    account.display_balance()  # should show $150
+    if account.withdraw(20):
+        print("Expected: Withdrew: $20")
     else:
-        print("Invalid command.")
+        print("Unexpected: Withdrawal failed")
+    account.display_balance() 
+    if account.withdraw(200):
+        print("Unexpected: Withdrew: $200")
+    else:
+        print("Expected: Insufficient funds.")
+    account.display_balance()
+    print("Final Check:")
+    account.display_balance()
 
 if __name__ == "__main__":
     main()
