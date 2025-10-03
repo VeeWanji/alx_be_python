@@ -4,9 +4,10 @@ class BankAccount:
     def deposit(self, amount):
         self.__account_balance += amount
     def withdraw(self, amount):
-        if amount > self.__account_balance:
+        if self.__account_balance < amount:
             return False
         self.__account_balance -= amount
         return True
     def display_balance(self):
-        print(f"Current Balance: ${self.__account_balance.2f}")
+        print("Current Balance: ${:.2f}".forma(self.__account_balance))
+        
