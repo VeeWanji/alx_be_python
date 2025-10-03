@@ -9,5 +9,5 @@ class BankAccount:
         self.__account_balance -= amount
         return True
     def display_balance(self):
-        print("Current Balance: ${:.2f}".forma(self.__account_balance))
+        print("Current Balance: ${:.2f}".format(self.__account_balance))
         
